@@ -25,6 +25,7 @@ Each requirement is traced to the article (*madde*) and paragraph (*fıkra*) of 
 
 ### 1.2 Out of scope
 - Detailed engineering calculation rules of Annex-2 (*Riskli Yapıların Tespit Edilmesine İlişkin Esaslar*) — the System integrates with / hosts the calculation software but does not redefine it.
+- Licensing, training, auditing and sanctioning of assessment institutions and their engineers (Art. 6). The System consumes licence status (active / blocked) from the Presidency's licence registry and only lets institutions with an active licence create building records.
 - Zoning plan preparation and approval (Art. 18–19), except storing plan references.
 - Urban transformation consulting firms (Art. 15/B) — separate specification.
 - Valuation methodology (Art. 12), except recording valuation results.
@@ -63,7 +64,7 @@ Each requirement is traced to the article (*madde*) and paragraph (*fıkra*) of 
 | A2 | Licensed Institution | Creates building record, performs and uploads assessment report, fixes deficiencies |
 | A3 | Directorate (*Müdürlük*) / authorised Administration | Reviews reports, notifies registry, receives objections, runs committee secretariat, sale process |
 | A4 | Administration (*İdare*) | Ex-officio assessment, demolition orders, demolition permit, forced demolition |
-| A5 | Presidency (*Başkanlık*) | Licensing, auditing, zone proposals, web publication, final authority |
+| A5 | Presidency (*Başkanlık*) | Zone proposals, web publication, final authority |
 | A6 | Technical Committee | Reviews objections and issues final decision |
 | A7 | Land Registry (*Tapu*) | Adds/removes annotations (*şerh/belirtme*), registers sales |
 | A8 | Mukhtar's Office | Posts 15-day public announcements |
@@ -293,22 +294,7 @@ sequenceDiagram
 
 Priority: **M** = Must (legal obligation), **S** = Should, **C** = Could.
 
-### 6.1 Licensing of assessment institutions (Art. 6)
-
-| ID | Requirement | Pri | Source |
-|---|---|---|---|
-| UR-LIC-01 | The System shall allow eligible organisation types (public bodies, universities, companies with ≥40% public capital, earthquake NGOs, 4708 building inspection & lab firms, TMMOB-registered offices) to apply for a licence online with document upload. | M | 6/1, 6/4 |
-| UR-LIC-02 | The System shall collect: petition, registration/permit certificate, trade registry status & gazette, UETS address and manager e-signature declaration, engineer eligibility documents and e-signature declarations, Annex-3 undertaking, fee receipt. | M | 6/4 |
-| UR-LIC-03 | The System shall validate engineer eligibility: active chamber membership, ≥5 years' practice, training completion, exam score ≥70/100 (waived for university faculty; for 4708 inspectors only training + e-signature). | M | 6/2, 6/4 |
-| UR-LIC-04 | The System shall enforce at least one civil engineer per licensed institution and prevent an engineer from being assigned to / partner in more than one licensed institution simultaneously. | M | 6/3 |
-| UR-LIC-05 | The System shall generate a Licence Certificate per Annex-1 on approval. | M | 6/4 |
-| UR-LIC-06 | The System shall require change notifications (partners, name, address, engineers) within 30 days and flag overdue notifications. | M | 6/6 |
-| UR-LIC-07 | The System shall automatically block new building records/actions when: no civil engineer assigned; change not notified on time; 4708 work ban active; chamber suspension active; engineers lack training within 6 months of a rule change; no active UETS address. Block lifts when the condition clears. | M | 6/8, 6/13 |
-| UR-LIC-08 | The System shall record administrative sanctions and fines, track 1-month payment, and produce a referral to the tax office when unpaid. | M | 6/9, 6/10 |
-| UR-LIC-09 | The System shall support filing criminal complaints (record + export) for false documents or reports on non-existent buildings. | S | 6/12 |
-| UR-LIC-10 | The System shall send all notifications to licensed institutions via their UETS address. | M | 6/14 |
-
-### 6.2 Risky building assessment request and execution (Art. 7/1–7/3)
+### 6.1 Risky building assessment request and execution (Art. 7/1–7/3)
 
 | ID | Requirement | Pri | Source |
 |---|---|---|---|
@@ -324,7 +310,7 @@ Priority: **M** = Must (legal obligation), **S** = Should, **C** = Could.
 | UR-RB-10 | The System shall calculate assessment costs for ex-officio assessments, apportion them by ownership share, issue notices, track 1-month payment, and refer unpaid amounts to the tax office (Presidency) or Administration collection (Law 6183). | M | 7/2-b |
 | UR-RB-11 | For buildings protected under Law 2863, the System shall only accept owner-initiated requests and, after finalisation, notify the Regional Cultural Heritage Board and hold further action until its decision is recorded. | M | 7/8 |
 
-### 6.3 Report review, registry annotation and notification (Art. 7/4, 7/9)
+### 6.2 Report review, registry annotation and notification (Art. 7/4, 7/9)
 
 | ID | Requirement | Pri | Source |
 |---|---|---|---|
@@ -336,7 +322,7 @@ Priority: **M** = Must (legal obligation), **S** = Should, **C** = Could.
 | UR-NOT-06 | The System shall compute the **deemed-service date** as the last day of the Muhtarlık announcement and use it as the start of the objection period. | M | 7/4, 7/5 |
 | UR-NOT-07 | The System shall maintain an auditable notification log (channel, date, document, proof). | M | 7/4, 8/2 |
 
-### 6.4 Objection and Technical Committee (Art. 7/5–7/7, 9, 10, 11)
+### 6.3 Objection and Technical Committee (Art. 7/5–7/7, 9, 10, 11)
 
 | ID | Requirement | Pri | Source |
 |---|---|---|---|
@@ -357,7 +343,7 @@ Priority: **M** = Must (legal obligation), **S** = Should, **C** = Could.
 | UR-OBJ-15 | The System shall compute attendance fees (*huzur hakkı*) for university members and travel allowances under Law 6245. | S | 11 |
 | UR-OBJ-16 | The System shall support recording court decisions that affect a determination. | M | 7/3, 7/7 |
 
-### 6.5 Evacuation, demolition and strengthening (Art. 8, 17)
+### 6.4 Evacuation, demolition and strengthening (Art. 8, 17)
 
 | ID | Requirement | Pri | Source |
 |---|---|---|---|
@@ -376,7 +362,7 @@ Priority: **M** = Must (legal obligation), **S** = Should, **C** = Could.
 | UR-DEM-13 | The System shall issue demolition permits in zones based on the majority agreement for all evacuated buildings in the stage/block. | M | 17/2 |
 | UR-DEM-14 | For parcels with multiple buildings of which only some are risky, the System shall annotate only the risky buildings (with open address) and restrict voting to their owners. | M | 15/7 |
 
-### 6.6 Risky zone determination (Art. 5)
+### 6.5 Risky zone determination (Art. 5)
 
 | ID | Requirement | Pri | Source |
 |---|---|---|---|
@@ -388,7 +374,7 @@ Priority: **M** = Must (legal obligation), **S** = Should, **C** = Could.
 | UR-RZ-06 | The System shall request pre-emption annotations on parcels in risky zones and reserve areas and receive sale notifications from the Land Registry. | M | 13/12 |
 | UR-RZ-07 | The System shall display zones on a GIS map with boundaries and parcel status. | S | 5/1-c |
 
-### 6.7 Reserve building area determination (Art. 4)
+### 6.6 Reserve building area determination (Art. 4)
 
 | ID | Requirement | Pri | Source |
 |---|---|---|---|
@@ -397,7 +383,7 @@ Priority: **M** = Must (legal obligation), **S** = Should, **C** = Could.
 | UR-RA-03 | For privately owned land (excluding Ministry-affiliated bodies), the System shall record consent to transfer **30%** of the buildable land m² to the Presidency or payment of its value into the special account. | M | 4/3 |
 | UR-RA-04 | The System shall calculate guarantees for private implementers before building permit (same scale as UR-RZ-05), aggregated when permits are issued on the same date. | M | 13/9-b |
 
-### 6.8 Owner decisions and auction (Art. 15, 15/A)
+### 6.7 Owner decisions and auction (Art. 15, 15/A)
 
 | ID | Requirement | Pri | Source |
 |---|---|---|---|
@@ -416,7 +402,7 @@ Priority: **M** = Must (legal obligation), **S** = Should, **C** = Could.
 | UR-DEC-13 | The System shall record court annulments due to under-valuation and compute the price difference plus statutory interest from auction date. | S | 15/A-16 |
 | UR-DEC-14 | The System shall support contract termination requests against contractors (1 year no start / 6 months stoppage), the 15-day contractor response, the 30-day warning, and ex-officio termination. | S | 13/11 |
 
-### 6.9 Rent assistance and financial support (Art. 16)
+### 6.8 Rent assistance and financial support (Art. 16)
 
 | ID | Requirement | Pri | Source |
 |---|---|---|---|
@@ -429,7 +415,7 @@ Priority: **M** = Must (legal obligation), **S** = Should, **C** = Could.
 | UR-AID-07 | The System shall allow up to 1 year of rent assistance to be paid in advance if approved by the Presidency. | C | 16/5 |
 | UR-AID-08 | The System shall flag fee/tax exemptions (municipal fees up to 1.5× existing construction area; pro-rata for merged parcels). | S | 16/10–16/12 |
 
-### 6.10 Post-demolition parcel operations (Art. 15/8–15/10)
+### 6.9 Post-demolition parcel operations (Art. 15/8–15/10)
 
 | ID | Requirement | Pri | Source |
 |---|---|---|---|
@@ -457,9 +443,6 @@ Priority: **M** = Must (legal obligation), **S** = Should, **C** = Could.
 | Static engineer for demolition | Buildings > 21.50 m | 8/3-b |
 | Cost payment (assessment / demolition) | 1 month after notice, then Law 6183 | 7/2-b, 8/8 |
 | Report of non-demolished buildings | Every 2 months | 8/8 |
-| Licence change notification | 30 days | 6/6 |
-| Engineer re-training after rule change | 6 months | 6/8-d, 6/13 |
-| Administrative fine payment | 1 month | 6/10 |
 | Majority meeting notice / dissenter acceptance | 15 days / 15 days | 15/2 |
 | UETS deemed service | End of 5th day after delivery | 13/14, 15/2, 15/A-4 |
 | Auction winner payment & contract | 7 days | 15/A-8 |
@@ -510,8 +493,8 @@ stateDiagram-v2
 
 | ID | Requirement |
 |---|---|
-| NFR-01 | **Integration:** e-Devlet (notification, citizen login), UETS (e-notification), TAKBİS / Land Registry (annotation, sale registration), UAVT (address, building code), Building Inspection System (construction progress), utility providers, Official Gazette reference. |
-| NFR-02 | **E-signature:** All reports, committee decisions and minutes shall be signed with qualified e-signature (licensed institution manager & engineers must declare e-signature). |
+| NFR-01 | **Integration:** e-Devlet (notification, citizen login), UETS (e-notification), TAKBİS / Land Registry (annotation, sale registration), UAVT (address, building code), Building Inspection System (construction progress), Presidency licence registry (licence status of assessment institutions), utility providers, Official Gazette reference. |
+| NFR-02 | **E-signature:** All reports, committee decisions and minutes shall be signed with qualified e-signature. |
 | NFR-03 | **Deadline engine:** Calendar-day and business-day calculation honouring Turkish public holidays; deemed-service rules per channel. |
 | NFR-04 | **Audit trail:** Immutable log of every status change, notification, document and user action; retention per archival regulation. |
 | NFR-05 | **Data protection:** Compliance with KVKK (Law 6698) for owner identity, ownership share and financial data; role-based access by province/authority. |
@@ -542,7 +525,6 @@ stateDiagram-v2
 | Art. 3 | §2 Definitions |
 | Art. 4 | UR-RA-01 … 03 |
 | Art. 5 | UR-RZ-01 … 04, 07 |
-| Art. 6 | UR-LIC-01 … 10 |
 | Art. 7 | UR-RB-01 … 11, UR-NOT-01 … 07, UR-OBJ-01 … 03, 13, 16 |
 | Art. 8 | UR-DEM-01 … 11 |
 | Art. 9 | UR-OBJ-04 |

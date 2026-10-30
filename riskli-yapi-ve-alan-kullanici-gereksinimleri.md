@@ -25,6 +25,7 @@ Her gereksinim, Yönetmeliğin ilgili madde ve fıkrasına bağlanmıştır.
 
 ### 1.2 Kapsam dışı
 - Ek-2'deki mühendislik hesap esasları (*Riskli Yapıların Tespit Edilmesine İlişkin Esaslar*) — Sistem bu hesap yazılımını barındırır / onunla entegre olur, ancak esasları yeniden tanımlamaz.
+- Tespit kuruluşları ve mühendislerinin lisanslandırılması, eğitimi, denetimi ve yaptırımlar (Md. 6). Sistem lisans durumunu (etkin / kapalı) Başkanlığın lisans kayıt sisteminden alır ve yalnızca lisansı etkin kuruluşların yapı kaydı oluşturmasına izin verir.
 - İmar planlarının hazırlanması ve onayı (Md. 18–19); yalnızca plan bilgileri kaydedilir.
 - Kentsel dönüşüm danışmanlık ve müzakere kuruluşları (Md. 15/B) — ayrı bir dokümanda ele alınacaktır.
 - Değerleme yöntemi (Md. 12); yalnızca değerleme sonuçları kaydedilir.
@@ -63,7 +64,7 @@ Her gereksinim, Yönetmeliğin ilgili madde ve fıkrasına bağlanmıştır.
 | A2 | Lisanslı kuruluş | Yapı kaydı oluşturur, tespit raporunu hazırlar ve yükler, eksiklikleri giderir |
 | A3 | Müdürlük / yetki devredilmiş İdare | Raporları inceler, tapuya bildirir, itirazları alır, teknik heyet sekretaryasını ve satış sürecini yürütür |
 | A4 | İdare | Resen tespit yapar, yıkım talimatı verir, yıkım ruhsatı düzenler, zorla yıkım yapar |
-| A5 | Başkanlık | Lisanslandırma, denetim, alan teklifleri, internet sayfasında ilan, nihai yetki |
+| A5 | Başkanlık | Alan teklifleri, internet sayfasında ilan, nihai yetki |
 | A6 | Teknik heyet | İtirazları inceler ve nihai kararı verir |
 | A7 | Tapu müdürlüğü | Belirtme/şerh ekler ve kaldırır, satışları tescil eder |
 | A8 | Muhtarlık | 15 günlük ilanları yapar |
@@ -293,22 +294,7 @@ sequenceDiagram
 
 Öncelik: **Z** = Zorunlu (yasal yükümlülük), **G** = Gerekli, **İ** = İsteğe bağlı.
 
-### 6.1 Tespit kuruluşlarının lisanslandırılması (Md. 6)
-
-| No | Gereksinim | Önc. | Kaynak |
-|---|---|---|---|
-| KG-LIS-01 | Sistem; kamu kurumları, üniversiteler, sermayesinin en az %40'ı kamuya ait şirketler, deprem alanında faaliyet gösteren STK'lar, 4708 sayılı Kanun kapsamındaki yapı denetim ve laboratuvar kuruluşları ile TMMOB'a büro tescili yapılmış kuruluşların belge yükleyerek çevrim içi lisans başvurusu yapmasına imkân verecektir. | Z | 6/1, 6/4 |
-| KG-LIS-02 | Sistem; dilekçe, tescil/izin belgesi, ticaret sicil belgesi ve gazetesi, UETS adresi ve yönetici e-imza beyanı, mühendis uygunluk belgeleri ve e-imza beyanları, Ek-3 taahhütname ve lisans ücreti dekontunu alacaktır. | Z | 6/4 |
-| KG-LIS-03 | Sistem mühendis uygunluğunu doğrulayacaktır: oda üyeliğinin devamı, en az 5 yıl fiilî çalışma, eğitim, 100 üzerinden en az 70 sınav puanı (öğretim üyelerinde aranmaz; 4708 denetçilerinde yalnızca eğitim + e-imza). | Z | 6/2, 6/4 |
-| KG-LIS-04 | Sistem her lisanslı kuruluşta en az bir inşaat mühendisi bulunmasını zorunlu kılacak, bir mühendisin aynı anda birden fazla kuruluşta görev almasını veya ortak olmasını engelleyecektir. | Z | 6/3 |
-| KG-LIS-05 | Sistem onay hâlinde Ek-1'deki şekilde Lisans Belgesi üretecektir. | Z | 6/4 |
-| KG-LIS-06 | Sistem ortak, unvan, adres ve mühendis değişikliklerinin 30 gün içinde bildirilmesini isteyecek ve geciken bildirimleri işaretleyecektir. | Z | 6/6 |
-| KG-LIS-07 | Sistem şu hâllerde yeni yapı kaydı/işlem iznini otomatik olarak kapatacaktır: inşaat mühendisi yoksa; değişiklik süresinde bildirilmemişse; 4708 kapsamında iş almaktan men cezası varsa; meslek odası faaliyetten men cezası varsa; esas değişikliğinden sonra 6 ay içinde eğitim alınmamışsa; etkin UETS adresi yoksa. Koşul ortadan kalkınca izin yeniden açılır. | Z | 6/8, 6/13 |
-| KG-LIS-08 | Sistem idari yaptırımları ve para cezalarını kaydedecek, 1 aylık ödeme süresini izleyecek, ödenmeyenler için vergi dairesine bildirim üretecektir. | Z | 6/9, 6/10 |
-| KG-LIS-09 | Sistem gerçeğe aykırı belge veya mevcut olmayan yapı için rapor hâllerinde suç duyurusu kaydı ve çıktısı üretebilecektir. | G | 6/12 |
-| KG-LIS-10 | Sistem lisanslı kuruluşlara yapılacak tüm bildirimleri UETS adresine gönderecektir. | Z | 6/14 |
-
-### 6.2 Riskli yapı tespit talebi ve tespitin yapılması (Md. 7/1–7/3)
+### 6.1 Riskli yapı tespit talebi ve tespitin yapılması (Md. 7/1–7/3)
 
 | No | Gereksinim | Önc. | Kaynak |
 |---|---|---|---|
@@ -324,7 +310,7 @@ sequenceDiagram
 | KG-RY-10 | Sistem resen yapılan tespitlerin masraflarını hesaplayacak, hisse oranında paylaştıracak, tebligat yapacak, 1 aylık ödemeyi izleyecek ve ödenmeyenleri 6183 sayılı Kanuna göre tahsil için (Başkanlıkça yapılmışsa vergi dairesine) yönlendirecektir. | Z | 7/2-b |
 | KG-RY-11 | 2863 sayılı Kanun kapsamındaki yapılar için Sistem yalnızca malik talebini kabul edecek, kesinleşmeden sonra koruma bölge kuruluna bildirecek ve kurul kararı kaydedilene kadar işlemleri bekletecektir. | Z | 7/8 |
 
-### 6.3 Rapor incelemesi, tapuya belirtme ve tebligat (Md. 7/4, 7/9)
+### 6.2 Rapor incelemesi, tapuya belirtme ve tebligat (Md. 7/4, 7/9)
 
 | No | Gereksinim | Önc. | Kaynak |
 |---|---|---|---|
@@ -336,7 +322,7 @@ sequenceDiagram
 | KG-BLD-06 | Sistem **tebliğ edilmiş sayılma tarihini** muhtarlık ilanının son günü olarak hesaplayacak ve itiraz süresinin başlangıcı olarak kullanacaktır. | Z | 7/4, 7/5 |
 | KG-BLD-07 | Sistem denetlenebilir bir tebligat kaydı tutacaktır (kanal, tarih, belge, ispat). | Z | 7/4, 8/2 |
 
-### 6.4 İtiraz ve teknik heyet (Md. 7/5–7/7, 9, 10, 11)
+### 6.3 İtiraz ve teknik heyet (Md. 7/5–7/7, 9, 10, 11)
 
 | No | Gereksinim | Önc. | Kaynak |
 |---|---|---|---|
@@ -357,7 +343,7 @@ sequenceDiagram
 | KG-ITZ-15 | Sistem üniversite üyelerinin huzur hakkını ve 6245 sayılı Kanuna göre yolluk ve gündeliklerini hesaplayacaktır. | G | 11 |
 | KG-ITZ-16 | Sistem tespiti etkileyen yargı kararlarının kaydedilmesini destekleyecektir. | Z | 7/3, 7/7 |
 
-### 6.5 Tahliye, yıkım ve güçlendirme (Md. 8, 17)
+### 6.4 Tahliye, yıkım ve güçlendirme (Md. 8, 17)
 
 | No | Gereksinim | Önc. | Kaynak |
 |---|---|---|---|
@@ -376,7 +362,7 @@ sequenceDiagram
 | KG-YIK-13 | Sistem alanlarda, etap/adada tahliye edilen tüm yapılar için salt çoğunluk anlaşmasına dayalı yıkım ruhsatı düzenlenmesini destekleyecektir. | Z | 17/2 |
 | KG-YIK-14 | Bir parselde birden fazla yapı bulunup yalnızca bir kısmı riskli ise Sistem sadece riskli yapılara açık adresiyle belirtme işletecek ve oylamayı bu yapıların maliklerine sınırlayacaktır. | Z | 15/7 |
 
-### 6.6 Riskli alan belirlenmesi (Md. 5)
+### 6.5 Riskli alan belirlenmesi (Md. 5)
 
 | No | Gereksinim | Önc. | Kaynak |
 |---|---|---|---|
@@ -388,7 +374,7 @@ sequenceDiagram
 | KG-RA-06 | Sistem riskli alan ve rezerv alanlardaki parsellere ön alım hakkı şerhi talep edecek ve tapudan satış bildirimlerini alacaktır. | Z | 13/12 |
 | KG-RA-07 | Sistem alanları sınırları ve parsel durumlarıyla CBS haritasında gösterecektir. | G | 5/1-c |
 
-### 6.7 Rezerv yapı alanı belirlenmesi (Md. 4)
+### 6.6 Rezerv yapı alanı belirlenmesi (Md. 4)
 
 | No | Gereksinim | Önc. | Kaynak |
 |---|---|---|---|
@@ -397,7 +383,7 @@ sequenceDiagram
 | KG-RZ-03 | Özel mülkiyetteki arazilerde (Bakanlığa bağlı kuruluşlar hariç) Sistem yapılaşmaya esas arsa m²'sinin **%30'unun** Başkanlığa devrine muvafakati veya bedelinin özel hesaba yatırılmasını kaydedecektir. | Z | 4/3 |
 | KG-RZ-04 | Sistem özel uygulayıcılar için yapı ruhsatından önce teminatı (KG-RA-05 ile aynı kademeler) hesaplayacak; ruhsatlar aynı tarihte düzenlenirse toplam alan üzerinden hesaplayacaktır. | Z | 13/9-b |
 
-### 6.8 Malik kararları ve açık artırma (Md. 15, 15/A)
+### 6.7 Malik kararları ve açık artırma (Md. 15, 15/A)
 
 | No | Gereksinim | Önc. | Kaynak |
 |---|---|---|---|
@@ -416,7 +402,7 @@ sequenceDiagram
 | KG-KRR-13 | Sistem bedelin eksik hesaplanması gerekçesiyle verilen iptal kararlarını kaydedecek ve ihale tarihinden itibaren yasal faiziyle fark bedeli hesaplayacaktır. | G | 15/A-16 |
 | KG-KRR-14 | Sistem müteahhitle yapılan sözleşmelerin feshi taleplerini (1 yıl işe başlamama / 6 ay durma), müteahhide 15 gün süre, 30 günlük ihtar ve resen feshi destekleyecektir. | G | 13/11 |
 
-### 6.9 Kira yardımı ve mali destekler (Md. 16)
+### 6.8 Kira yardımı ve mali destekler (Md. 16)
 
 | No | Gereksinim | Önc. | Kaynak |
 |---|---|---|---|
@@ -429,7 +415,7 @@ sequenceDiagram
 | KG-YRD-07 | Sistem Başkanlığın uygun görmesi hâlinde kira yardımının 1 yıla kadar olan kısmının peşin ödenmesine imkân verecektir. | İ | 16/5 |
 | KG-YRD-08 | Sistem harç ve ücret muafiyetlerini işaretleyecektir (mevcut inşaat alanının 1,5 katına kadar belediye harç ve ücreti alınmaz; tevhitte oransal muafiyet). | G | 16/10–16/12 |
 
-### 6.10 Yıkım sonrası parsel işlemleri (Md. 15/8–15/10)
+### 6.9 Yıkım sonrası parsel işlemleri (Md. 15/8–15/10)
 
 | No | Gereksinim | Önc. | Kaynak |
 |---|---|---|---|
@@ -457,9 +443,6 @@ sequenceDiagram
 | Yıkımda statik fenni mesul | 21.50 m'den yüksek binalar | 8/3-b |
 | Masraf ödemesi (tespit / yıkım) | Tebligattan sonra 1 ay, sonra 6183 sayılı Kanun | 7/2-b, 8/8 |
 | Yıkılamayan yapıların bildirimi | İkişer aylık periyotlar | 8/8 |
-| Lisans değişikliği bildirimi | 30 gün | 6/6 |
-| Esas değişikliği sonrası mühendis eğitimi | 6 ay | 6/8-d, 6/13 |
-| İdari para cezası ödemesi | 1 ay | 6/10 |
 | Toplantı ilanı / katılmayanların kabul süresi | 15 gün / 15 gün | 15/2 |
 | UETS'de tebliğ sayılma | Ulaşmayı izleyen 5. günün sonu | 13/14, 15/2, 15/A-4 |
 | İhale üzerinde kalanın ödeme ve sözleşmesi | 7 gün | 15/A-8 |
@@ -510,8 +493,8 @@ stateDiagram-v2
 
 | No | Gereksinim |
 |---|---|
-| FOG-01 | **Entegrasyon:** e-Devlet (bildirim, vatandaş girişi), UETS (elektronik tebligat), TAKBİS / tapu (belirtme, satış tescili), UAVT (adres, bina kodu), Yapı Denetim Sistemi (inşaat ilerlemesi), altyapı kuruluşları, Resmî Gazete bilgisi. |
-| FOG-02 | **Elektronik imza:** Tüm raporlar, heyet kararları ve tutanaklar nitelikli elektronik imza ile imzalanacaktır (lisanslı kuruluş yöneticisi ve mühendisleri e-imza beyan etmek zorundadır). |
+| FOG-01 | **Entegrasyon:** e-Devlet (bildirim, vatandaş girişi), UETS (elektronik tebligat), TAKBİS / tapu (belirtme, satış tescili), UAVT (adres, bina kodu), Yapı Denetim Sistemi (inşaat ilerlemesi), Başkanlık lisans kayıt sistemi (tespit kuruluşlarının lisans durumu), altyapı kuruluşları, Resmî Gazete bilgisi. |
+| FOG-02 | **Elektronik imza:** Tüm raporlar, heyet kararları ve tutanaklar nitelikli elektronik imza ile imzalanacaktır. |
 | FOG-03 | **Süre motoru:** Resmî tatilleri dikkate alarak takvim günü ve iş günü hesabı; kanala göre tebliğ sayılma kuralları. |
 | FOG-04 | **İz kaydı:** Her durum değişikliği, tebligat, belge ve kullanıcı işleminin değiştirilemez kaydı; arşiv mevzuatına uygun saklama. |
 | FOG-05 | **Kişisel verilerin korunması:** Malik kimliği, hisse ve mali veriler için 6698 sayılı KVKK'ya uyum; il/kurum bazında rol tabanlı erişim. |
@@ -542,7 +525,6 @@ stateDiagram-v2
 | Md. 3 | §2 Tanımlar |
 | Md. 4 | KG-RZ-01 … 03 |
 | Md. 5 | KG-RA-01 … 04, 07 |
-| Md. 6 | KG-LIS-01 … 10 |
 | Md. 7 | KG-RY-01 … 11, KG-BLD-01 … 07, KG-ITZ-01 … 03, 13, 16 |
 | Md. 8 | KG-YIK-01 … 11 |
 | Md. 9 | KG-ITZ-04 |
@@ -558,7 +540,6 @@ stateDiagram-v2
 
 | Türkçe | İngilizce |
 |---|---|
-| KG-LIS | UR-LIC |
 | KG-RY | UR-RB |
 | KG-BLD | UR-NOT |
 | KG-ITZ | UR-OBJ |
